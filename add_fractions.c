@@ -1,3 +1,5 @@
+
+
 #include<stdio.h>
 struct fraction
 {
@@ -31,8 +33,11 @@ void output(struct fraction a)
 }
 void add(struct fraction a,struct fraction  b,struct fraction *c)
 {
-   *c->d=(a.d)*(b.d);
-   *c->n=(a.n*b.d)+(b.n*a.d);
+   int k,p;
+   k=(a.d)*(b.d);
+   p=(a.n*b.d)+(b.n*a.d);
+   c->d=k;
+   c->n=p;
    return;
 }
 int gcd(struct fraction a)
@@ -52,7 +57,7 @@ int gcd(struct fraction a)
 
 int main()
 {
-    fraction a,b,c;
+    struct  fraction a,b,c;
     int x;
     printf("read 1st fraction\n");
     input(&a);
@@ -64,7 +69,6 @@ int main()
     c.d/=x;
     output(c);
 }
-
 
 
     

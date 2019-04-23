@@ -1,10 +1,15 @@
 #include<stdio.h>
+struct fraction
+{
+    int n;
+    int d;
+};
 void input(struct fraction *x)
 {
     printf("read numerator\n");
-    scanf("%d",x.n);
+    scanf("%d",&x->n);
     printf("read denominator\n");
-    scanf("%d",x.d);
+    scanf("%d",&x->d);
     return;
 }
 void output(struct fraction a)
@@ -26,8 +31,8 @@ void output(struct fraction a)
 }
 void add(struct fraction a,struct fraction  b,struct fraction *c)
 {
-   *c.d=(a.d)*(b.d);
-   *c.n=(a.n*b.d)+(b.n*a.d);
+   *c->d=(a.d)*(b.d);
+   *c->n=(a.n*b.d)+(b.n*a.d);
    return;
 }
 int gcd(struct fraction a)
@@ -43,11 +48,7 @@ int gcd(struct fraction a)
 
     return x;
 }
-struct fraction
-{
-    int n;
-    int d;
-};
+
 
 int main()
 {

@@ -1,10 +1,4 @@
 
-
-
-
-    
-    
-    
 #include<stdio.h>
 struct fraction
 {
@@ -74,3 +68,9 @@ int main()
     add(a,b,&c);
     output(c);
 }
+
+
+    
+    
+    
+

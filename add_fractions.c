@@ -14,23 +14,24 @@ void input(struct fraction *x)
     scanf("%d",&x->d);
     return;
 }
-void output(struct fraction a)
+void output(struct fraction a,struct fraction b, struct fraction c )
 {
 
-    if(a.n==a.d)
+    if(c.n==c.d)
     {
-            printf("the sum of the given fraction is = 1");
+            printf("%d/%d + %d/%d = 1",a.n,a.d,b.n,b.d);
     }
-    else if(a.d==1)
+    else if(c.d==1)
     {
-            printf("the sum of the given fraction is = %d",a.n);
+            printf("%d/%d + %d/%d= %d",a.n,a.d,b.n,b.d,c.n);
     }
     else
     {
-            printf("the sum the given fraction is = %d/%d",a.n,a.d);
+            printf("%d/%d + %d/%d = %d/%d",a.n,a.d,b.n,b.d,c.n,c.d);
     }
     return;
 }
+
 void add(struct fraction a,struct fraction  b,struct fraction *c)
 {
    int k,p;

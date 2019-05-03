@@ -1,5 +1,6 @@
 
 #include<stdio.h>
+int gcd(int ,int);
 struct fraction
 {
     int n;

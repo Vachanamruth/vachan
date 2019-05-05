@@ -1,6 +1,4 @@
 
-
-
 #include<stdio.h>
 int gcd(int ,int);
 struct fraction
@@ -45,21 +43,29 @@ void add(struct fraction a,struct fraction  b,struct fraction *c)
 }
 int  gcd(int a,int b)
 {
-   if(a==b)
+   if(a>b)
    {
-    return a;
-   }
-   else if(a>b)
-   {
-    return gcd(a-b,b);
+    if(a%b==0)
+    {
+     return b;
+    }
+    else
+    {
+     return gcd(a-b,b);
+    }
    }
    else
    {
-    return gcd(a,b-a);
+    if(b%a==0)
+    {
+     return a;
+    }
+    else
+    {
+     return gcd(a,b-a);
+    }
    }
 }
-
-
 int main()
 {
     struct  fraction a,b,c;
@@ -70,6 +76,9 @@ int main()
     add(a,b,&c);
     output(a,b,c);
 }
+
+
+
 
 
     

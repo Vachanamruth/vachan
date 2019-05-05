@@ -1,4 +1,3 @@
-
 #include<stdio.h>
 int gcd(int ,int);
 struct fraction
@@ -34,15 +33,11 @@ void output(struct fraction a,struct fraction b, struct fraction c )
 
 void add(struct fraction a,struct fraction  b,struct fraction *c)
 {
-   int k,p;
-   k=(a.d)*(b.d);
-   p=(a.n*b.d)+(b.n*a.d);
-   int x= gcd(k,p);
-   k/=x;
-   p/=x;
-   c->d=k;
-   c->n=p;
-
+   c->d=(a.d)*(b.d);
+   c->n=(a.n*b.d)+(b.n*a.d);
+   int x= gcd(c->d,c->n);
+   c->d/=x;
+   c->n/=x;
    return;
 }
 int  gcd(int a,int b)
@@ -68,8 +63,9 @@ int main()
     printf("read 2nd farction\n");
     input(&b);
     add(a,b,&c);
-    output(c);
+    output(a,b,c);
 }
+
 
 
     

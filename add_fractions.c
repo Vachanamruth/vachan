@@ -1,4 +1,3 @@
-
 #include<stdio.h>
 int gcd(int ,int);
 struct fraction
@@ -51,7 +50,7 @@ int  gcd(int a,int b)
     }
     else
     {
-     return gcd(a-b,b);
+     return gcd(a%b,b);
     }
    }
    else
@@ -62,7 +61,7 @@ int  gcd(int a,int b)
     }
     else
     {
-     return gcd(a,b-a);
+     return gcd(a,b%a);
     }
    }
 }

@@ -45,7 +45,8 @@ void compute(int a, int b, int c,struct complex *x)
                 else
                 {
                         printf("the roots are imaginary\n");
-                        x->r1=x->r2=-b/(2*a);
+                        x->r1=-b/(2*a);
+                        x->r2=-b/(2*a);
                         x->i=fabs(sqrt(d))/(2*a);
                 }
         }

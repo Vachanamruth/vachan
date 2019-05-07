@@ -60,18 +60,18 @@ void output( int a, int b,struct complex x,struct complex y)
         }
         else if(a==0)
         {
-                printf("the root is %f\n",x.r);
+                printf("the root is %.2f\n",x.r);
         }
         else
         {
                 if(x.i==0)
                 {
-                        printf("the roots are %f and %f\n",x.r,y.r);
+                        printf("the roots are %.2f and %.2f\n",x.r,y.r);
                 }
                 else
                 {
-                        printf("the roots are \n%f+i%f\n",x.r,x.i);
-                        printf("%f-i%f\n",y.r,y.i);
+                        printf("the roots are \n%.2f+i%.2f\n",x.r,x.i);
+                        printf("%.2f-i%.2f\n",y.r,y.i);
                 }
         }
         return;
@@ -86,3 +86,4 @@ int main()
         output(a,b,x,y);
         return 0;
 }
+

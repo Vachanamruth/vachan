@@ -2,7 +2,7 @@
 #include<math.h>
 struct complex
 {
-        float r1,r2;
+        float r;
         float i;
 };
 void input(int *a,int *b,int *c)
@@ -11,7 +11,7 @@ void input(int *a,int *b,int *c)
         scanf("%d%d%d",a,b,c);
         return;
 }
-void compute(int a, int b, int c,struct complex *x)
+void compute(int a, int b, int c,struct complex *x,struct complex *y)
 {
         int d;
         d=(b*b)-(4*a*c);
@@ -22,37 +22,37 @@ void compute(int a, int b, int c,struct complex *x)
         else if(a==0)
         {
                 printf("it's a linear eqn\n");
-                x->r1=-c/b;
-                x->r2=0;
+                x->r=-c/b;
                 x->i=0;
+                y->r=0;
+                y->i=0;
         }
         else
         {
                 if(d==0)
                 {
                         printf("the roots are real and equal\n");
-                        x->r1=-b/(2*a);
-                        x->r2=x->r1;
-                        x->i=0;
+                        x->r=-b/(2*a);
+                        y->r=x->r;
+                        y->i=x->i=0;
                 }
                 else if(d>0)
                 {
                         printf("the roots are real and distinct\n");
-                        x->r1=(-b-sqrt(d))/(2*a);
-                        x->r2=(-b+sqrt(d))/(2*a);
-                        x->i=0;
+                        x->r=(-b-sqrt(d))/(2*a);
+                        y->r=(-b+sqrt(d))/(2*a);
+                        x->i=y->i=0;
                 }
                 else
                 {
                         printf("the roots are imaginary\n");
-                        x->r1=-b/(2*a);
-                        x->r2=-b/(2*a);
-                        x->i=fabs(sqrt(d))/(2*a);
+                        x->r=y->r=-b/(2*a);
+                        x->i=y->i=fabs(sqrt(d))/(2*a);
                 }
         }
         return;
 }
-void output( int a, int b,struct complex x)
+void output( int a, int b,struct complex x,struct complex y)
 {
         if((a==0)&&(b==0))
         {
@@ -60,18 +60,18 @@ void output( int a, int b,struct complex x)
         }
         else if(a==0)
         {
-                printf("the root is %f\n",x.r1);
+                printf("the root is %f\n",x.r);
         }
         else
         {
                 if(x.i==0)
                 {
-                        printf("the roots are %f and %f\n",x.r1,x.r2);
+                        printf("the roots are %f and %f\n",x.r,y.r);
                 }
                 else
                 {
-                        printf("the roots are \n%f+i%f\n",x.r1,x.i);
-                        printf("%f-i%f\n",x.r2,x.i);
+                        printf("the roots are \n%f+i%f\n",x.r,x.i);
+                        printf("%f-i%f\n",y.r,y.i);
                 }
         }
         return;
@@ -79,10 +79,10 @@ void output( int a, int b,struct complex x)
 
 int main()
 {
-        struct complex x;
+        struct complex x,y;
         int a,b,c;
         input(&a,&b,&c);
-        compute(a,b,c,&x);
-        output(a,b,x);
+        compute(a,b,c,&x,&y);
+        output(a,b,x,y);
         return 0;
 }

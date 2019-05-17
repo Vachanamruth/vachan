@@ -23,8 +23,9 @@ void compute(struct num *a,float n)
         {
                 a->s=1;
         }//sign obtained
-        char x[100]=(char)n;
-        char i[100]=((char)((int)n));
+        char x[100],i[100];
+        sprintf(x,"%f",n);
+        sprintf(i,"%f",floor(n));
         int l=(strlen(x)-1);//total number of characters of the number n excluding radix
         a->ex=l-strlen(i);//total number of characters after radix
         a->m=n*pow(10,a->ex);//mantissa obtained

@@ -16,7 +16,7 @@ int compute(int n, int *res,int *temp)
                 *res=(*res*10)+d;
                 n=n/10;
         }
-        if(*temp==n)
+        if(*temp==*res)
         {
                 return 1;
         }
@@ -27,7 +27,7 @@ int compute(int n, int *res,int *temp)
 }
 void output(int temp, int res)
 {
-        printf("the input number is %d\n it's reverse is %d\n",temp,res);
+        printf("the input number is %d\nit's reverse is %d\n",temp,res);
         return ;
 }
 int main()

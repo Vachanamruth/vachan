@@ -6,24 +6,16 @@ int input()
         scanf("%d",&n);
         return n;
 }
-int compute(int n, int *res,int *temp)
+void reverse(int n, int *res)
 {
         int d;
-        *temp=n;
         while(n!=0)
         {
                 d=n%10;
                 *res=(*res*10)+d;
                 n=n/10;
         }
-        if(*temp==*res)
-        {
-                return 1;
-        }
-        else
-        {
-                return 0;
-        }
+        return;
 }
 void output(int temp, int res)
 {
@@ -34,7 +26,9 @@ int main()
 {
         int n,res=0,temp=0;
         n=input();
-        if(compute(n,&res,&temp))
+        temp=n;
+        reverse(n,&res);
+        if(temp==res)
         {
                 output(temp,res);
                 printf("the number is a palindrome\n");

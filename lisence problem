@@ -1,0 +1,106 @@
+/*
+QUESTION:
+
+You have to get a new driver's license and you show up at the office at the same time as 4 other people. 
+The office says that they will see everyone in alphabetical order and it takes 20 minutes for them to process each new license.
+All of the agents are available now, and they can each see one customer at a time. 
+How long will it take for you to walk out of the office with your new license?
+
+Task 
+Given everyone's name that showed up at the same time, determine how long it will take to get your new license.
+
+Input Format 
+Your input will be a string of your name, then an integer of the number of available agents, 
+and lastly a string of the other four names separated by spaces.
+
+Output Format 
+You will output an integer of the number of minutes that it will take to get your license.
+
+Sample Input
+'Eric'
+2
+'Adam Caroline Rebecca Frank'
+
+Sample Output 
+40*/
+
+
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+void sort(char names[4][50])
+{
+        int i , j;
+        char temp[50];
+        for(i=0;i<=3;i++)
+        {
+                for(j=0;j<49;j++)
+                {
+                        if(names[i][j]>names[i+1][j])
+                        {
+                                strcpy(temp,names[i]);
+                                strcpy(names[i],names[i+1]);
+                                strcpy(names[i+1],temp);
+                                break;
+                        }
+                        else if(names[i][j]<names[i+1][j])
+                        {
+                                break;
+                        }
+                        else
+                        {
+                                ;
+                        }
+                }
+        }
+}
+int main()
+{
+        char name[50];// your name
+        printf(" your name: ");
+        strcpy(name,strupr(gets(name)));  //reading names in uppercase
+        name[strlen(name)] = '\0'; // adding a end null...seems unnecessary please look into it
+        int i,j,operators;
+        printf("read number of operators: ");
+        scanf("%d", &operators);
+        printf(" Read the names of the applicants: ");
+        char names[4][50];// list of applicants
+        for(i=0;i<=4;i++)
+        {
+                strcpy(names[i],strupr(gets(names[i]))); //reading names in uppercase
+                names[i][strlen(names[i])]='\0'; // adding a end null...seems unnecessary please look into it
+        }
+        sort(names);// sorts the input names in lexiographical order
+        int count=0;//keeps count of the number of applicants before you in alphabetical order
+        for(i=0;i<=4;i++)
+        {
+                for(j=0;j<49;j++)
+                {
+                        if(strcmp(name,names[i])==0)
+                        {
+                                if(name[j]>names[i][j])
+                                {
+                                        count++;
+                                        break;
+                                }
+                                else if(name[j]<names[i][j])
+                                {
+                                        break;
+                                }
+                                else
+                                {
+                                        ;
+                                }
+                        }
+                        else
+                        {
+                                break;
+                        }
+                }
+        }
+        int time = 0;
+        time = 20 + (20* floor(count/operators));
+        printf("time: %d", time);
+}
+
+
